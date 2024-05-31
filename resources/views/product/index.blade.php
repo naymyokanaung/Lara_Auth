@@ -23,7 +23,7 @@
                 <tbody>
                     @foreach ($products as $product)
                     <tr>
-                        <th scope="row">{{$loop->iteration}}</th>
+                        <th scope="row">{{ (($products->currentPage() * 10 ) -10 ) + $loop->iteration}}</th>
                         <td>{{$product->name}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->description}}</td>
@@ -42,6 +42,9 @@
                     @endforeach                  
                 </tbody>
               </table>
+              <div class="d-flex justify-content-center mt-4">
+                {{ $products->links() }}
+            </div>
             </div>
           </div>
     </section>
